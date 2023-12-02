@@ -5,3 +5,4 @@
 <br/>
 Using Async IO Futures and asyncio.wait_for(), you can achieve the same!
 
+(This example uses Cogs, as coroutines are not part of classes/Cogs in simple discord.py programs. You can however use this method in every type of class.) 
