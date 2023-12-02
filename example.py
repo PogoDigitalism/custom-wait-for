@@ -30,7 +30,8 @@ class TicketHandler(commands.Cog):
     @commands.command()
     async def test(self, ctx: commands.Context) -> None:
       TicketContinueView = TicketContinueView(Cog=self)
-
+      await ctx.channel.send('Continue?', view=TicketContinueView)
+        
       result = await wait_for_interaction(timeout=60)
       if result is None:
         await ctx.channel.send('No interaction happened, closing.', delete_after=10)
