@@ -1,3 +1,5 @@
+#This is an example of a ticket initiation system. It has an interaction timeout of 60 seconds.
+
 import asyncio
 import discord
 from discord.ext import commands
