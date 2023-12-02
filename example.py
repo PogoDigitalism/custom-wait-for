@@ -4,11 +4,12 @@ from discord.ext import commands
 
 class TicketStartView(discord.ui.View):
     def __init__(self, Cog):
+        self.Cog = Cog
         super().__init__(timeout=None)
 
     @discord.ui.button(style=discord.ButtonStyle.blurple, label='continue')
     async def Continue(self, interaction: discord.Interaction, button: discord.ui.Button):
-        Cog._interaction_future.set_result(True)
+        self.Cog._interaction_future.set_result(True)
 
 
 class TicketHandler(commands.Cog):
