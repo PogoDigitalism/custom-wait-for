@@ -11,7 +11,7 @@ class TicketContinueView(discord.ui.View):
 
     @discord.ui.button(style=discord.ButtonStyle.blurple, label='continue')
     async def Continue(self, interaction: discord.Interaction, button: discord.ui.Button):
-        self.Cog._interaction_future.set_result(True)
+        self.Cog._interaction_future.set_result(True) # Set the result of Future before the timeout happens. Will trigger wait_for_interaction's asyncio.wait_for()
 
 
 class TicketHandler(commands.Cog):
@@ -26,12 +26,12 @@ class TicketHandler(commands.Cog):
         except asyncio.TimeoutError:
             return None
         finally:
-            self._interaction_future = None
+            self._interaction_future = None # reset
 
 
     @commands.command()
     async def test(self, ctx: commands.Context) -> None:
-      TicketContinueView = TicketContinueView(Cog=self)
+      TicketContinueView = TicketContinueView(Cog=self) # Passing my Cog instance here
       await ctx.channel.send('Continue?', view=TicketContinueView)
         
       result = await wait_for_interaction(timeout=60)
