@@ -2,7 +2,7 @@ import asyncio
 import discord
 from discord.ext import commands
 
-class TicketStartView(discord.ui.View):
+class TicketContinueView(discord.ui.View):
     def __init__(self, Cog):
         self.Cog = Cog
         super().__init__(timeout=None)
@@ -29,7 +29,7 @@ class TicketHandler(commands.Cog):
 
     @commands.command()
     async def test(self, ctx: commands.Context) -> None:
-      TicketStartView = TicketStartView(Cog=self)
+      TicketContinueView = TicketContinueView(Cog=self)
 
       result = await wait_for_interaction(60)
       if result is None:
