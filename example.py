@@ -2,7 +2,7 @@ import asyncio
 import discord
 from discord.ext import commands
 
-class TicketContinueView(discord.ui.View):
+class TicketContinueView(discord.ui.View): # Requires you to pass the instance (in this case a Cog) of where you instanced the view and thus want the custom wait_for to be.
     def __init__(self, Cog):
         self.Cog = Cog
         super().__init__(timeout=None)
