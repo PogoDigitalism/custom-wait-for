@@ -12,7 +12,7 @@ class CustomWaitFor:
         self._active_futures[tag] = f
         return f
 
-    async def wait_for(self, tag: str,timeout: int = None) -> Any:
+    async def wait_for(self, tag: str, timeout: int = None) -> Any:
         future = self._active_futures.get(tag)
 
         try:
