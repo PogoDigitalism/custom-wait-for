@@ -18,7 +18,7 @@ class TicketHandler(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
     
-    async def wait_for_interaction(self, timeout: int = None):
+    async def wait_for_interaction(self, timeout: int = None): #single function method for wait_for_interaction
         self._interaction_future = asyncio.Future(loop=asyncio.get_event_loop())
 
         try:
